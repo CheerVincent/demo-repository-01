@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+        <!--添加剂消费者应用-->
+    <dubbo:application name="dubboConsumer"/>
+
+    <!--配置和provider相同的注册中心-->
+    <dubbo:registry protocol="zookeeper"
+                    address="192.168.195.129:2181,192.168.195.130:2181,192.168.195.131:2181"/>
+    <!--开启监控-->
+    <dubbo:monitor protocol="registry" />
+    <!--生成远程连接的服务代理-->
+    <dubbo:reference interface="com.bobo.service.UserService" id="userService"
+        group="dubbo" version="1.0.0" timeout="5000"
+    />
+
+</beans>

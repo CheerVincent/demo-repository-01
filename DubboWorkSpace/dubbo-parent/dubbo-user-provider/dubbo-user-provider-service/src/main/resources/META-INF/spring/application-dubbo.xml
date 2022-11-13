@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 导入Spring相关的配置文件 -->
+    <import resource="../../applicationContext-dao.xml" />
+    <import resource="../../applicationContext-service.xml" />
+    <import resource="../../applicationContext-trans.xml" />
+    <dubbo:application name="user-provider" />
+    <dubbo:registry protocol="zookeeper"
+                    address="192.168.195.129:2181,192.168.195.130:2181,192.168.195.131:2181"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--添加向zookeeper注册服务-->
+    <dubbo:service interface="com.bobo.dubbo.service.AddUserDubboService"
+                   ref="addUserDubboServiceImpl" group="dubbo" version="1.0.0" timeout="5000"/>
+
+    <!--添加向zookeeper注册服务-->
+    <dubbo:service interface="com.bobo.dubbo.service.SelectUserDubboService"
+                   ref="selectUserDubboServiceImpl" group="dubbo" version="1.0.0" timeout="5000"/>
+
+    <!--添加向zookeeper注册服务-->
+    <dubbo:service interface="com.bobo.dubbo.service.DeleteUserDubboService"
+                   ref="deleteUserDubboServiceImpl" group="dubbo" version="1.0.0" timeout="5000"/>
+</beans>

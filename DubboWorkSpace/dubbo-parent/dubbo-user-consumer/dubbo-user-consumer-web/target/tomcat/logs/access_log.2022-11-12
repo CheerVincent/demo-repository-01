@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:02:22 +0800] "GET / HTTP/1.1" 200 103 http-bio-8082-exec-1 131
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:02:23 +0800] "GET /addUser HTTP/1.1" 200 489 http-bio-8082-exec-3 34
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:02:41 +0800] "GET /user/finall HTTP/1.1" 404 949 http-bio-8082-exec-4 4
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:03:07 +0800] "GET /user/finAll HTTP/1.1" 404 949 http-bio-8082-exec-5 2
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:07:17 +0800] "GET /user/findAll HTTP/1.1" 200 692 http-bio-8082-exec-7 14061
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:07:34 +0800] "GET /user/deleteById?userid=5 HTTP/1.1" 404 997 http-bio-8082-exec-9 22
+0:0:0:0:0:0:0:1 - - [12/Nov/2022:16:07:47 +0800] "GET /user/findAll HTTP/1.1" 200 487 http-bio-8082-exec-10 11

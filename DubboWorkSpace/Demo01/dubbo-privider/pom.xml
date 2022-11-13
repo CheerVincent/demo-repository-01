@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>DubboDemo01</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dubbo-privider</artifactId>
+
+    <dependencies>
+        <!-- 添加commons模块 -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>dubbo-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--- 添加Spring依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.25</version>
+        </dependency>
+        <!-- dubbo的依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>spring</groupId>
+                    <artifactId>org.springframework</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Zookeeper的客户端 -->
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.1</version>
+        </dependency>
+    </dependencies>
+</project>
